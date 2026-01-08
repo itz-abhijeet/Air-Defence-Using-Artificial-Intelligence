@@ -1,0 +1,92 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000a12;
+}
+::-webkit-scrollbar-thumb {
+    background: #00e5ff;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1744;
+}
+
+/* Radar Sweep Animation */
+.radar-sweep {
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 280deg,
+        rgba(0, 229, 255, 0.1) 320deg,
+        rgba(0, 229, 255, 0.5) 360deg
+    );
+    animation: radar-spin 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes radar-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Grid Overlay */
+.grid-overlay {
+    background-image:
+        linear-gradient(rgba(0, 255, 0, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Map Dark Mode Filters */
+#map .leaflet-layer,
+#map .leaflet-control-zoom-in,
+#map .leaflet-control-zoom-out,
+#map .leaflet-control-attribution {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* Icons customizations to avoid inversion effects */
+.custom-marker-friendly {
+    filter: invert(100%) hue-rotate(180deg);
+    /* Counter-act the map filter if needed, but easier to just style markers separately */
+}
+
+/* Ticker Animation */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 100%; /* Start off-screen */
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
+}
+
+/* Blip Pulsing */
+.blip-pulse {
+    animation: blip 1s infinite;
+}
+
+@keyframes blip {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
