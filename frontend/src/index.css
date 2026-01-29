@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tactical-dark: #000a12;
+  --color-tactical-cyan: #00e5ff;
+  --color-tactical-red: #ff1744;
+  --color-tactical-green: #00ff00;
+}
+
+body {
+  background-color: #000a12;
+  color: white;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar for Terminal */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.radar-sweep {
+  background: conic-gradient(from 0deg, transparent 0%, rgba(0, 229, 255, 0.1) 80%, rgba(0, 229, 255, 0.5) 100%);
+  animation: radar-spin 4s linear infinite;
+}
+
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.grid-overlay {
+  background-image: linear-gradient(rgba(0, 229, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blip-pulse {
+  animation: blip 1s infinite;
+}
+
+@keyframes blip {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Leaflet Custom Icon Styles */
+.custom-icon {
+  background: transparent;
+  border: none;
+}
