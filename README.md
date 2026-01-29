@@ -1,100 +1,145 @@
-# Jyoti Chaksu
+# S-EYE (Sudarshan Eye)
 *Advanced AI-Enabled Air Defense Interface*
+
+![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react)
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python)
+![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1-06B6D4?logo=tailwindcss)
 
 ## Project Overview
 
-**Jyoti Chaksu** is a sophisticated, real-time air defense command center dashboard that combines modern web technologies with AI-powered threat detection capabilities. The name "Jyoti Chaksu" translates to "Light Eye" in Sanskrit, symbolizing the system's ability to illuminate and identify aerial threats with precision and clarity.
+**S-EYE (Sudarshan Eye)** is a sophisticated, real-time air defense command center dashboard that combines modern web technologies with AI-powered threat detection capabilities. The name symbolizes the all-seeing eye of defense, providing comprehensive situational awareness.
 
-This high-fidelity military-themed interface provides defense personnel with comprehensive situational awareness through real-time radar tracking, AI-powered aircraft identification, and integrated security protocols. The system simulates a professional-grade command center environment with tactical dark UI elements and immersive radar animations.
+This high-fidelity military-themed interface provides defense personnel with real-time radar tracking, AI-powered aircraft identification, and integrated security protocols through an immersive tactical dark UI.
 
 ## Tech Stack
 
-### Backend Technologies
-- **Node.js** - Server-side JavaScript runtime
-- **Express.js** - Web application framework
-- **Socket.io** - Real-time bidirectional communication
-- **HTTP Server** - Built-in Node.js HTTP server
-
-### Frontend Technologies
-- **HTML5** - Modern markup language
-- **Tailwind CSS** - Utility-first CSS framework
-- **JavaScript (ES6+)** - Client-side scripting
+### Frontend
+- **React 19** - Modern UI library with hooks
+- **Vite 7** - Next-generation build tool
+- **Tailwind CSS 4** - Utility-first CSS framework
 - **Leaflet.js** - Interactive mapping library
-- **Chart.js** - Data visualization library
+- **Chart.js** - Data visualization
+- **Socket.io Client** - Real-time communication
+
+### Backend
+- **Python 3.12+** - Server-side runtime
+- **FastAPI** - Modern async web framework
+- **Socket.io (python-socketio)** - Real-time bidirectional events
+- **Uvicorn** - ASGI server
 
 ### AI & Integration
 - **Azure Custom Vision API** - AI-powered aircraft identification (simulated)
 - **Real-time Data Processing** - Live flight tracking and analysis
 
-### Development Tools
-- **NPM** - Package management
-- **Git** - Version control
+## Project Structure
 
-## Project Workflow & Information
+```
+S-EYE/
+├── backend/
+│   ├── main.py           # FastAPI + Socket.io server
+│   ├── requirements.txt  # Python dependencies
+│   └── venv/             # Virtual environment
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── LoginOverlay.jsx  # Biometric auth simulation
+│   │   │   ├── Map.jsx           # Leaflet radar map
+│   │   │   ├── Sidebar.jsx       # Flight info panel
+│   │   │   └── NewsTicker.jsx    # Scrolling news feed
+│   │   ├── App.jsx       # Main application
+│   │   ├── main.jsx      # React entry point
+│   │   └── index.css     # Global styles + Tailwind
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+└── README.md
+```
 
-### System Architecture
+## Installation & Setup
 
-1. **Server Layer (app.js)**
-   - Express server handles HTTP requests and static file serving
-   - Socket.io manages real-time communication between server and clients
-   - Mock API endpoints simulate Azure Custom Vision integration
-   - Flight data generator creates realistic aircraft movement patterns
+### Prerequisites
+- **Node.js 18+** and npm
+- **Python 3.12+**
 
-2. **Client Layer (Frontend)**
-   - Interactive map interface using Leaflet.js for geographical visualization
-   - Real-time chart updates showing signal density patterns
-   - Biometric authentication simulation for security
-   - Terminal-style logging for system feedback
+### 1. Clone Repository
+```bash
+git clone https://github.com/itz-abhijeet/Air-Defence-Using-Artificial-Intelligence.git
+cd Air-Defence-Using-Artificial-Intelligence
+```
 
-3. **Data Flow**
-   - Server generates simulated flight data with realistic movement patterns
-   - Socket.io broadcasts updates to connected clients every second
-   - Client receives data and updates map markers in real-time
-   - User interactions trigger AI analysis requests to mock API endpoints
+### 2. Backend Setup
+```bash
+cd backend
 
-### Key Features
+# Create virtual environment
+python -m venv venv
 
-- **Real-time Radar Tracking**: Live visualization of aircraft positions with smooth movement animations
-- **AI Target Recognition**: Simulated Azure Custom Vision integration for aircraft identification
-- **Biometric Security**: Immersive login sequence with fingerprint scanning simulation
-- **Tactical Interface**: Military-grade dark theme with neon accents and radar sweep animations
-- **Live Data Feeds**: Scrolling news ticker and real-time signal density monitoring
-- **Interactive Map**: Click-to-analyze functionality for detailed threat assessment
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
 
-### Installation & Setup
+# Install dependencies
+pip install -r requirements.txt
 
-1. **Clone Repository**
-   ```bash
-   git clone [repository-url]
-   cd jyoti-chaksu
-   ```
+# Start backend server (runs on port 3000)
+uvicorn main:socket_app --reload --port 3000
+```
 
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+### 3. Frontend Setup
+```bash
+cd frontend
 
-3. **Start Application**
-   ```bash
-   npm start
-   ```
-   Server runs on `http://localhost:3000`
+# Install dependencies
+npm install
 
-4. **Access Dashboard**
-   Open browser and navigate to `http://localhost:3000`
+# Start development server (runs on port 5173)
+npm run dev
+```
 
-### Usage Workflow
+### 4. Access Dashboard
+Open browser and navigate to `http://localhost:5173`
 
-1. **Authentication**: System starts with biometric scan simulation
-2. **Dashboard Access**: Main interface loads with live radar display
-3. **Target Tracking**: Aircraft appear as real-time blips on the map
-4. **Threat Analysis**: Click any aircraft marker to initiate AI analysis
-5. **Results Display**: System shows aircraft type, confidence level, and threat assessment
-6. **Continuous Monitoring**: Real-time updates maintain situational awareness
+## Key Features
 
-### Demo Features
+- **🎯 Real-time Radar Tracking** - Live visualization of aircraft positions with smooth animations
+- **🤖 AI Target Recognition** - Simulated Azure Custom Vision for aircraft identification
+- **🔐 Biometric Security** - Immersive fingerprint scanning login simulation
+- **🎨 Tactical Interface** - Military-grade dark theme with neon cyan/red accents
+- **📰 Live Data Feeds** - Scrolling news ticker and signal density monitoring
+- **🗺️ Interactive Map** - Click-to-analyze functionality for threat assessment
 
-- **Full Screen Mode**: Press F11 for immersive experience
-- **Simulated AI**: Mock Azure integration ensures reliable demo performance
-- **Dynamic Data**: Realistic aircraft movement patterns for engaging presentations
-- **Security Theater**: Biometric login creates professional atmosphere
+## Usage Workflow
+
+1. **Authentication** - Biometric scan simulation (~4.5 seconds)
+2. **Dashboard Access** - Main interface loads with live radar display
+3. **Target Tracking** - Aircraft appear as real-time blips on the map
+4. **Threat Analysis** - Click any aircraft marker to initiate AI analysis
+5. **Results Display** - View aircraft type, confidence level, and threat status
+6. **Continuous Monitoring** - Real-time socket updates maintain awareness
+
+## Development
+
+### Frontend Development
+```bash
+cd frontend
+npm run dev      # Start dev server with HMR
+npm run build    # Build for production
+npm run preview  # Preview production build
+```
+
+### Backend Development
+```bash
+cd backend
+uvicorn main:socket_app --reload --port 3000
+```
+
+## License
+
+ISC License
+
+## Author
+
+**Abhijeet** - [GitHub](https://github.com/itz-abhijeet)
